@@ -150,7 +150,7 @@ public:
 		return m;
 	};
 	int getN() {
-		return m;
+		return n;
 	};
 	int** getArr() {
 		return arr_ptr;
