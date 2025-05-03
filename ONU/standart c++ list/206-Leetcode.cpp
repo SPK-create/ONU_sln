@@ -14,16 +14,30 @@ public:
 			return nullptr;
 		}
 
-		ListNode* temp_head = head;
+		ListNode* tmp_head = head;
+		ListNode* list_answ = new ListNode();
 
-		while (temp_head->next != nullptr) { //till to the last node
-			temp_head = temp_head->next;
+		while (tmp_head->next != nullptr) {
+			tmp_head = tmp_head->next;
+		} //Доходим до последней актуальной ноды списка
+
+		ListNode* last = tmp_head;
+
+		while (last != head) {
+			list_answ->val = last->val;
+			list_answ->next = new ListNode();
+			list_answ = list_answ->next;
+			delete tmp_head;
+
+			ListNode* tmp_head = head;
+			while (tmp_head->next != nullptr) {
+				tmp_head = tmp_head->next;
+			} //Доходим до последней актуальной ноды списка
+			last = tmp_head;
 		}
-		ListNode* tail = temp_head;
-		ListNode* temp_tail = tail;
-		temp_head = head;
-
 		
+		list_answ->val = head->val;
+		return list_answ;
 	}
 
-}; //////////////////???????????????????????????
+}; 
